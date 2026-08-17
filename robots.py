@@ -20,3 +20,12 @@ class DroneRobot(Robot):
     def perform_task(self, **kwargs):
         self.use_battery(25)
         return f"{self.name} completed an aerial survey up to {self.max_altitude}m."
+
+class SecurityRobot(Robot):
+    def __init__(self, name, battery=100, patrol_range=50):
+        super().__init__(name, battery)
+        self.patrol_range = patrol_range
+
+    def perform_task(self, **kwargs):
+        self.use_battery(15)
+        return f"{self.name} patrolled a {self.patrol_range}m perimeter."
